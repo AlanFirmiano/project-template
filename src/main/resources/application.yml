@@ -1,0 +1,36 @@
+#arquivo de configuracoes local/default
+
+#port config
+server:
+  port: 8090
+
+spring:
+  application:
+    name: "apptemplate"
+
+
+  #database config
+  datasource:
+    url: jdbc:postgresql://localhost:15432/apptemplate?currentSchema=public
+    username: "admin"
+    password: "admin"
+    driver-class-name: "org.postgresql.Driver"
+    hikari:
+      schema: public
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  #flyway config
+  flyway:
+    locations: "db/migration"
+    baseline-on-migrate: false
+
+#swagger config
+springdoc:
+  swagger-ui:
+    path: "/apptemplate/swagger-ui.html"
