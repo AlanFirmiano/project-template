@@ -49,12 +49,12 @@ resource "aws_route_table_association" "apptemplate_rtba_pub_1a" {
 }
 
 resource "aws_instance" "apptemplate_ec2_inst" {
-  instance_type = "t2.micro"
-  ami           = data.aws_ami.apptemplate_server_ami.id
+  instance_type          = "t2.micro"
+  ami                    = data.aws_ami.apptemplate_server_ami.id
   key_name               = aws_key_pair.apptemplate_key.id
   vpc_security_group_ids = [aws_security_group.apptemplate_sg.id]
   subnet_id              = aws_subnet.apptemplate_subnet_pub_1a.id
-  user_data = file("userdata.tpl")
+  user_data              = file("userdata.tpl")
 
   root_block_device {
     volume_size = 8 # espaço de disco - freetier

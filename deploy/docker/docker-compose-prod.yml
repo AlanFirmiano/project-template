@@ -17,7 +17,7 @@ services:
 
   app-template-api:
     container_name: app-template-api
-    image: alanfirmiano/app-template-api:0.0.2-SNAPSHOT
+    image: alanfirmiano/app-template-api:latest
     environment:
       SERVER_PORT: 3000
       SPRING_PROFILES_ACTIVE: prod
